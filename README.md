@@ -21,8 +21,7 @@ statsd def $ Timing "glork" 320
 statsd def $ Time "glork" $ do
     -- Whatever you do here will be timed. I don't claim to understand 
     -- how laziness plays in. I just take two timestamps before and 
-    -- after the action then record the difference. This one's also not 
-    -- working yet in general.
+    -- after the action then record the difference
 
 -- Gauges
 statsd def $ Gauge "gaugor" 333

@@ -83,10 +83,12 @@ build (Time k a)    = do
     t1 <- getCurrentTime; a
     t2 <- getCurrentTime
 
-    build $ Timing k (diff t2 t1)
+    build $ Timing k (diff t1 t2 * 1000)
 
     where
-        diff = undefined -- Why is this so hard?
+        -- seconds
+        diff :: UTCTime -> UTCTime -> Double
+        diff t = realToFrac . diffUTCTime t
 
 send :: String -> PortNumber -> String -> IO ()
 send h p msg = do
