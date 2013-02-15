@@ -45,10 +45,10 @@ import System.Random
 data Action = Increment String
             | Decrement String
             | Count String Int
-            | Timing String Double
+            | Timing String Integer
             | Time String (IO ())
             | Gauge String Double
-            | Set String Int
+            | Set String Int -- TODO: Int OK?
 
 
 data StatsdConf = StatsdConf
@@ -87,8 +87,8 @@ build (Time k a)    = do
 
     where
         -- seconds
-        diff :: UTCTime -> UTCTime -> Double
-        diff t = realToFrac . diffUTCTime t
+        diff :: UTCTime -> UTCTime -> Integer
+        diff t = round . diffUTCTime t
 
 send :: String -> PortNumber -> String -> IO ()
 send h p msg = do
