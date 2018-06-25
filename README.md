@@ -1,3 +1,7 @@
+**ARCHIVED**: Many better options exist:
+
+http://hackage.haskell.org/packages/search?terms=statsd
+
 # statsd-hs
 
 A Haskell client for [statsd](https://github.com/etsy/statsd/).
